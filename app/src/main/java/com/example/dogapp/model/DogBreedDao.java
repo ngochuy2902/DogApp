@@ -1,0 +1,19 @@
+package com.example.dogapp.model;
+
+import androidx.room.Dao;
+import androidx.room.Insert;
+import androidx.room.OnConflictStrategy;
+import androidx.room.Query;
+
+import java.util.List;
+
+@Dao
+public interface DogBreedDao {
+
+    @Query("SELECT * FROM DogBreed")
+    List<DogBreed> getAllDogBreeds();
+
+    @Insert(onConflict = OnConflictStrategy.IGNORE)
+    void insertDogBreed(DogBreed... dogBreeds);
+
+}
